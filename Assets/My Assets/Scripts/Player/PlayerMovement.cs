@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     //Input
     float x, y;
     bool jumping, sprinting, crouching;
+    public bool usingMobile;
 
     //Sliding
     private Vector3 normalVector = Vector3.up;
@@ -65,22 +66,46 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MyInput();
-        Look();
+        if (usingMobile == false)
+        {
+            Look();
+        }
+        if (usingMobile == true) 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     //Move this to its own class eventually
     private void MyInput() 
     {
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
-        jumping = Input.GetButton("Jump");
-        crouching = Input.GetKey(KeyCode.LeftControl);
+        if (usingMobile == false)
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+            jumping = Input.GetButton("Jump");
+            crouching = Input.GetKey(KeyCode.LeftControl);
 
-        //Crouching
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-            StartCrouch();
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-            StopCrouch();
+            //Crouching
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+                StartCrouch();
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+                StopCrouch();
+        }
+        if (usingMobile == true)
+        {
+            //x = GetComponent<PlayerManager>().horizontalInput;
+            //y = GetComponent<PlayerManager>().verticalInput;
+            //jumping = GetComponent<PlayerManager>().jump;
+            //crouching = Input.GetKey(KeyCode.LeftControl);
+
+            //Crouching
+            //if (Input.GetKeyDown(KeyCode.LeftControl))
+            //    StartCrouch();
+            //if (Input.GetKeyUp(KeyCode.LeftControl))
+            //    StopCrouch();
+        }
     }
 
     private void StartCrouch() 
