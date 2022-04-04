@@ -26,7 +26,7 @@ public class WorldManager : MonoBehaviour
     public float worldTime = 0;
     public float spawnerTimer = 5f;
     public bool spawnerCooldown = false;
-    private bool inPlay = false;
+    public bool inPlay = false;
     public float playerScore = 0;
     public float difficultyMultiplier = 1;
     public bool gameOver = false;

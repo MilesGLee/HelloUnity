@@ -23,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
         if (health <= 0)
         {
             _wm.playerScore += 100;
+            _wm.player.GetComponent<PlayerBuilding>().funds += 10;
             Destroy(gameObject);
         }
         if (Vector3.Distance(target.position, transform.position) < 5 && attackInterval == false)

@@ -94,4 +94,16 @@ public class PlayerManager : MonoBehaviour
             storyHUD.SetActive(false);
         }
     }
+
+    public void LockedState() 
+    {
+        grappleObj.SetActive(false);
+        hasGrapple = false;
+    }
+
+    public void UnlockedState()
+    {
+        grappleObj.SetActive(true);
+        hasGrapple = true;
+    }
 }
