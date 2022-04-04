@@ -8,8 +8,9 @@ public class GrapplingHook : MonoBehaviour
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, cam, player;
-    private float maxDistance = 100f;
+    private float maxDistance = 200f;
     private SpringJoint joint;
+    public bool grappling = false;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class GrapplingHook : MonoBehaviour
 
             lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
+            grappling = true;
         }
     }
 
@@ -61,6 +63,7 @@ public class GrapplingHook : MonoBehaviour
     {
         lr.positionCount = 0;
         Destroy(joint);
+        grappling = false;
     }
 
     private Vector3 currentGrapplePosition;
