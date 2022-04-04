@@ -10,6 +10,7 @@ public class EnemyBehavior : MonoBehaviour
     public Transform target;
     public int damage;
     private bool attackInterval;
+    public WorldManager _wm;
 
     void Start()
     {
@@ -20,11 +21,16 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (health <= 0)
+        {
+            _wm.playerScore += 100;
             Destroy(gameObject);
+        }
         if (Vector3.Distance(target.position, transform.position) < 5 && attackInterval == false)
         {
             StartCoroutine(attack());
         }
+        if (_wm.gameOver == true)
+            Destroy(gameObject);
     }
 
     IEnumerator attack() 

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class MainMenuBehavior : MonoBehaviour
 {
-    public Toggle MobileToggle;
+    [SerializeField] private Toggle MobileToggle;
+    [SerializeField] private Dropdown difficulty;
+    [SerializeField] private Text bestScore;
 
     void Start()
     {
-        
+        bestScore.text = "" + PlayerPrefs.GetFloat("BestScore");
     }
 
     void Update()
@@ -22,6 +24,14 @@ public class MainMenuBehavior : MonoBehaviour
         {
             PlayerPrefs.SetInt("Mobile", 0);
         }
+        if (difficulty.value == 0)
+            PlayerPrefs.SetInt("Difficulty", 0);
+        if (difficulty.value == 1)
+            PlayerPrefs.SetInt("Difficulty", 1);
+        if (difficulty.value == 2)
+            PlayerPrefs.SetInt("Difficulty", 2);
+        if (difficulty.value == 3)
+            PlayerPrefs.SetInt("Difficulty", 3);
     }
 
     public void PlayGame() 

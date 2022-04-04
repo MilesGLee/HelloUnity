@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CoreManager : MonoBehaviour
 {
+    [SerializeField] private WorldManager _wm;
     [SerializeField] private int health;
     [SerializeField] private TextMesh healthText;
     [SerializeField] private Color goodHealth;
@@ -46,6 +47,8 @@ public class CoreManager : MonoBehaviour
             healthText.color = mediumHealth;
         if (health < 4 && health > 0)
             healthText.color = badHealth;
+        if (health <= 0)
+            _wm.gameOver = true;
     }
 
     public void TakeDamage(int amount) 
