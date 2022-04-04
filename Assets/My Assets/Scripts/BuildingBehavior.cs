@@ -33,4 +33,11 @@ public class BuildingBehavior : MonoBehaviour
         GoodBuild.SetActive(false);
         BadBuild.SetActive(true);
     }
+
+    public void BuildFinish()
+    {
+        Build.SetActive(true);
+        GoodBuild.SetActive(false);
+        BadBuild.SetActive(false);
+    }
 }

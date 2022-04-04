@@ -7,6 +7,8 @@ TagManager:
   - HERMES
   - Core
   - Enemy
+  - Bullet
+  - EnemyBody
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - Core
   - Enemy
   - Player
-  - 
-  - 
-  - 
+  - Buildable
+  - BuildCheck
+  - Bullet
   - 
   - 
   - 

@@ -63,7 +63,19 @@ public class PlayerBuilding : MonoBehaviour
 
                 currentBuilding.transform.position = lookingPoint;
 
-                if(currentBuilding.GetComponent<AutoTurretBehavior>)
+                if (currentBuilding.GetComponent<BuildingBehavior>()._bc.check == true)
+                    currentBuilding.GetComponent<BuildingBehavior>().BuildBad();
+                if (currentBuilding.GetComponent<BuildingBehavior>()._bc.check == false)
+                    currentBuilding.GetComponent<BuildingBehavior>().BuildGood();
+                if (Input.GetKeyDown(KeyCode.Mouse0) && currentBuilding.GetComponent<BuildingBehavior>()._bc.check == false) 
+                {
+                    currentBuilding.GetComponent<BuildingBehavior>().BuildFinish();
+                    currentBuilding = null;
+                    inBuilding = false;
+                    GetComponent<PlayerManager>().UnlockedState();
+                    inMenu = false;
+                    funds -= 100;
+                }
             }
         }
     }

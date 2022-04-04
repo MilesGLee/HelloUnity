@@ -70,7 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nav: {fileID: 1967546307808837196}
-  Health: 1
+  health: 1
+  target: {fileID: 0}
+  damage: 0
+  _wm: {fileID: 0}
 --- !u!65 &-8207339681357225644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,7 +181,7 @@ GameObject:
   - component: {fileID: 4086546989775706569}
   m_Layer: 9
   m_Name: Eye
-  m_TagString: Untagged
+  m_TagString: EnemyBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

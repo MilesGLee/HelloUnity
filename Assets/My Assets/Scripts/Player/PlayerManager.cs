@@ -84,7 +84,7 @@ public class PlayerManager : MonoBehaviour
         if (playerStory == 7)
             storyText.text = "Along with your H.E.R.M.E.S gear, you will have funds provided by the company to expend on utilities to protect the core. Killing Cuboids will increase your funds.";
         if (playerStory == 8)
-            storyText.text = "Some of the purchasable machinery can be found on the left side of the room, these are automated turrets that will target Cuboids for you.";
+            storyText.text = "Some of the purchasable machinery can be found on the left side of the room, these are automated turrets that will target Cuboids for you. You can buy and place them using [Tab]";
         if (playerStory == 9)
             storyText.text = "Well I believe thats everything, just try to keep that core at full health as long as you can. Proceed through the blue door whenever your ready to begin.";
         if (playerStory == 10)
