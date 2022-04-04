@@ -17,7 +17,8 @@ public class AutoTurretBehavior : MonoBehaviour
 
     void Update()
     {
-        target = FindClosestEnemy().transform;
+        if(GameObject.FindGameObjectsWithTag("EnemyBody") != null)
+            target = FindClosestEnemy().transform;
         if(target != null)
             head.LookAt(target);
     }
